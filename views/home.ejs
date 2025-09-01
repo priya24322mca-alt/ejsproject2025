@@ -1,0 +1,44 @@
+<%- include('./base/header.ejs') %>
+   <div class = "container">
+      <div class="alert text-center bg-success my-3" style="color:white">
+        <h4>Login Form</h4>
+      </div>
+   </div>
+   <div class="container">
+      <div class ="row">
+        
+         <div class="col">
+               <form action="/login"method="post">
+                  <div>
+                    <label class="form-label">Email</label>
+                    <input type="text"class="form-control" name="email" ></input>
+                  </div>
+                  <div>
+                    <label class="form-label">Password</label>
+                    <input type="text"class="form-control" name="password" ></input>
+                  </div>
+                  <input type ="submit" value="Login" class=" btn btn-warning w-100 my-3"></input>
+                  <div>
+                    <a href="/user/signup" class=" btn btn-danger w-100 my-3">Sign Up</a>
+                  </div>
+
+               </form>
+         </div>
+         
+         <div class="col-md-6 text-center d-flex flex-column justify-content-center">
+
+        <!-- Logo Image -->
+        <div class="mx-auto mb-3">
+            <img src="/images/Rdeclogo.jpg" alt="Project Logo" 
+                class="img-fluid rounded-circle shadow-lg" 
+                style="width:200px; height:200px; border-radius:50%; border:4px solid #333; object-fit:cover;">
+        </div>
+
+        <!-- Project Title -->
+        <h2 class="fw-bold text-primary">RD ENGINEERING COLLEGE</h2>
+        <!--<p class="text-muted"></p>-->
+
+    </div>
+      </div>
+   </div>
+   <%- include('./base/footer.ejs') %>

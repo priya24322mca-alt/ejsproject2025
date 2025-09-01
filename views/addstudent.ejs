@@ -1,0 +1,107 @@
+<%- include('./base/header.ejs') %>
+<%- include('./base/nav.ejs') %>
+<div class = "container">
+      <div class="alert text-center bg-success my-3 " style="color:white">
+        <h5>Add Student</h5>
+      </div>
+      <div class ="row">
+       <div class="col"> </div>
+         <div class="col">
+               <form action="/add/student"method="post" enctype="multipart/form-data">
+                <div>
+                    <label class="form-label">Roll No</label>
+                    <input type="text"class="form-control" name="rollNo"></input>
+                  </div>
+                  <div>
+                    <label class="form-label">Student Name</label>
+                    <input type="text"class="form-control"name="studentName"></input>
+                  </div>
+                  <div>
+                    <label class="form-label">Father Name</label>
+                    <input type="text"class="form-control"name="fatherName"></input>
+                  </div>
+                  <div>
+                     <label class="form-label">Course</label>
+                     <select id="course" name="course" class="form-control" required>
+                        <option value="">SELECT COURSE </option>
+                          <option value="B.Tech">B.Tech</option>
+                             <option value="MCA">MCA</option>
+           
+          </select>
+        </div>
+        <!--<div>
+           <label class="form-label">Branch</label>
+            <input type="text"class="form-control"name="branch"></input>
+           </div> -->
+
+          <div>
+          <label class="form-label">Branch</label>
+          <select id="branch" name="branch" class="form-control" required>
+            <option value="">SELECT BRANCH</option>
+          </select>
+        </div>
+          
+           
+
+             <div>
+          <label class="form-label">Admission Year</label>
+          <select id="yearofAdmission" name="yearofAdmission" class="form-control" required>
+            <option value="">SELECT YEAR</option>
+            <option value="2021-2022">2021-2022</option>
+            <option value="2022-2023">2022-2023</option>
+            <option value="2023-2024">2023-2024</option>
+            <option value="2024-2025">2024-2025</option>
+          </select>
+        </div>
+         <div>
+           <label class="form-label"> Select Student Image</label>
+            <input type="file"class="form-control"name="studentImage"></input>
+           </div> 
+             
+             
+             
+             
+             <input type ="submit" value="Add Student" class=" btn btn-warning w-100 my-3"></input>
+                  
+                  
+                  
+                  
+                     
+               </form>
+         </div>
+         <div class="col"> </div>
+        </div>
+        
+
+      </div>
+    </div>
+
+
+    <script>
+  const courseSelect = document.getElementById("course");
+  const branchSelect = document.getElementById("branch");
+
+  const branches = {
+    "B.Tech": ["CSE", "ECE", "EEE", "Mechanical", "Civil", "IT"],
+    "MCA": ["MCA"]
+  };
+
+  courseSelect.addEventListener("change", function () {
+    const selectedCourse = this.value;
+
+    // Always reset branch dropdown to default
+    branchSelect.innerHTML = "<option value='' selected>SELECT BRANCH</option>";
+
+    if (branches[selectedCourse]) {
+      branches[selectedCourse].forEach(branch => {
+        const option = document.createElement("option");
+        option.value = branch;
+        option.textContent = branch;
+        branchSelect.appendChild(option);
+      });
+    }
+  });
+</script>
+
+
+<%- include('./base/footer.ejs') %>

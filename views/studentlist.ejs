@@ -1,0 +1,49 @@
+<%- include('./base/header.ejs') %>
+<%- include('./base/nav.ejs') %>
+<div class ="container">
+    <div class="alert text-center bg-success my-3 " style="color:white">
+        <h5>Student List</h5>
+      </div>
+</div>
+<div class="container">
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th>Student Photo</th>
+                <th>Roll No</th>
+                <th>Student Name</th>   
+                <th>Father Name</th> 
+                <th>Course</th>
+                <th>Branch</th>  
+                <th>Actions</th>         
+            </tr>
+        </thead>
+        <tbody>
+            <% students.forEach((student) =>{ %>
+                <tr>
+                    <td><img src="<%= student.studentImage%>"width="50px"height="50px"></img></td>
+                    <td><%= student.rollNo%></td>
+                    <td><%= student.studentName%></td>
+                    <td><%= student.fatherName%></td>
+                    <td><%= student.course%></td>
+                    <td><%= student.branch%></td>
+                    <td>
+                        <!--<a href=""class="btn btn-warning">Edit</a>
+                        <a href="/delete/student/<%= student._id %>"class="btn btn-danger">Delete</a>-->
+                         <a href="/edit/student/page/<%= student._id %>"class="btn btn-warning">
+                          <img src="/images/icons/edit.png"alt="Edit"width="30"height="30">
+                        </a>
+                        <a href="/delete/student/<%= student._id %>"class="btn btn-danger">
+                          <img src="/images/icons/delete.png"alt="Delete"width="30"height="30">
+                        </a>
+                    </td>
+                </tr>
+                
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+
+
+<%- include('./base/footer.ejs') %>
