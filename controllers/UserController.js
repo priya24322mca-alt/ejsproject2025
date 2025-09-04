@@ -25,7 +25,7 @@ async function doLogin(req,res){
          if(validPassword){
             if(user.userType == 'Admin'){
             let students = await Student.find({});
-             res.render('Welcomeadmin',{
+             res.render('welcomeadmin',{
                 students: students
              });
             }else{
