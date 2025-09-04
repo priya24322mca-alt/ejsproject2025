@@ -6,6 +6,7 @@ const studentSchema= new Schema({
     rollNo:{type:String,required:true},
     studentName:{type:String},
     fatherName:{type:String,require:true},
+    motherName:{type: String},
     course:{type:String,required:true},
     branch:{type:String},
     yearofAdmission:{type:String},
